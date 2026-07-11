@@ -4,7 +4,7 @@ import ProductCardGrid from "./components/ProductCardGrid";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-cyan-900">
       <Nav />
       <ProductCardGrid />
     </div>
