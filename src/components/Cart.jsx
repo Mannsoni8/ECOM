@@ -1,23 +1,9 @@
-import React from "react";
-
-const cartItems = [
-  {
-    id: 1,
-    title: "Premium Sneakers",
-    price: 129.99,
-    quantity: 1,
-    image: "https://picsum.photos/120?random=1",
-  },
-  {
-    id: 2,
-    title: "Casual Hoodie",
-    price: 59.99,
-    quantity: 2,
-    image: "https://picsum.photos/120?random=2",
-  },
-];
+import React, { useContext } from "react";
+import { ProductContext } from "../context/ProductContext";
 
 const Cart = () => {
+  const { cartItems } = useContext(ProductContext);
+
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0,
@@ -29,7 +15,6 @@ const Cart = () => {
         <h1 className="text-4xl font-bold mb-8">🛒 Shopping Cart</h1>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Cart Items */}
           <div className="lg:col-span-2 space-y-5">
             {cartItems.map((item) => (
               <div
@@ -48,7 +33,6 @@ const Cart = () => {
                   <p className="text-gray-500 mt-1">${item.price.toFixed(2)}</p>
 
                   <div className="flex items-center justify-between mt-5">
-                    {/* Quantity */}
                     <div className="flex items-center border rounded-lg overflow-hidden">
                       <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200">
                         −
@@ -74,7 +58,6 @@ const Cart = () => {
             ))}
           </div>
 
-          {/* Order Summary */}
           <div className="bg-white rounded-2xl shadow-md p-6 h-fit sticky top-6">
             <h2 className="text-2xl font-bold mb-6">Order Summary</h2>
 

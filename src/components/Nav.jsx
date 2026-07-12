@@ -9,7 +9,7 @@ import {
 } from "@remixicon/react";
 import { ProductContext } from "../context/ProductContext";
 const Nav = () => {
-  const { category, setCategory } = useContext(ProductContext);
+  const { category, setCategory, setIsCartOpen } = useContext(ProductContext);
 
   return (
     <header className="w-full shadow-sm ">
@@ -86,7 +86,10 @@ const Nav = () => {
               className="cursor-pointer hover:text-gray-500"
             />
 
-            <div className="relative cursor-pointer">
+            <div
+              onClick={() => setIsCartOpen(true)}
+              className="relative cursor-pointer"
+            >
               <RiShoppingBagLine size={23} className="hover:text-gray-500" />
 
               <span className="absolute -top-2 -right-2 bg-black text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center">

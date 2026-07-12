@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiHeartLine, RiStarFill, RiShoppingBagLine } from "@remixicon/react";
+import { ProductContext } from "../context/ProductContext";
 const ProductCard = ({ product }) => {
+  const { setCartItems, cartItems } = useContext(ProductContext);
+
   return (
     <div className="group w-70 bg-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl duration-300 border">
       <div className="relative bg-gray-500 h-50 overflow-hidden">
@@ -36,7 +39,10 @@ const ProductCard = ({ product }) => {
         <div className="flex items-center justify-between mt-5">
           <h2 className="text-2xl font-bold">${product.price}</h2>
 
-          <button className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full hover:bg-gray-800">
+          <button
+            onClick={() => setCartItems((prev) => [...prev, product])}
+            className="flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full hover:bg-gray-800"
+          >
             <RiShoppingBagLine size={18} />
             Add
           </button>
