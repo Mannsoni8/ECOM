@@ -2,8 +2,8 @@ import React from "react";
 import { RiHeartLine, RiStarFill, RiShoppingBagLine } from "@remixicon/react";
 const ProductCard = ({ product }) => {
   return (
-    <div className="group w-72 bg-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl duration-300 border">
-      <div className="relative bg-gray-500 h-72 overflow-hidden">
+    <div className="group w-70 bg-gray-300 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl duration-300 border">
+      <div className="relative bg-gray-500 h-50 overflow-hidden">
         <img
           src={product.image}
           alt={product.title}

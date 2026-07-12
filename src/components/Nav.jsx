@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   RiMapPinLine,
   RiQuestionLine,
@@ -7,7 +7,10 @@ import {
   RiShoppingBagLine,
   RiSearchLine,
 } from "@remixicon/react";
+import { ProductContext } from "../context/ProductContext";
 const Nav = () => {
+  const { category, setCategory } = useContext(ProductContext);
+
   return (
     <header className="w-full shadow-sm ">
       <nav className="border-b bg-amber-200">
@@ -17,11 +20,49 @@ const Nav = () => {
           </div>
 
           <ul className="hidden lg:flex items-center gap-10 text-[15px] uppercase font-medium">
-            <li className="cursor-pointer hover:text-gray-500">Women</li>
+            <li
+              onClick={() => setCategory("all")}
+              className={`cursor-pointer transition ${
+                category === "all"
+                  ? "text-black border-b-2 border-black"
+                  : "text-gray-500"
+              }`}
+            >
+              All
+            </li>
 
-            <li className="cursor-pointer hover:text-gray-500">Men</li>
+            <li
+              onClick={() => setCategory("women's clothing")}
+              className={`cursor-pointer transition ${
+                category === "women's clothing"
+                  ? "text-black border-b-2 border-black"
+                  : "text-gray-500"
+              }`}
+            >
+              Women
+            </li>
 
-            <li className="cursor-pointer hover:text-gray-500">Shoes</li>
+            <li
+              onClick={() => setCategory("men's clothing")}
+              className={`cursor-pointer transition ${
+                category === "men's clothing"
+                  ? "text-black border-b-2 border-black"
+                  : "text-gray-500"
+              }`}
+            >
+              Men
+            </li>
+
+            <li
+              onClick={() => setCategory("kid's clothing")}
+              className={`cursor-pointer transition ${
+                category === "kid's clothing"
+                  ? "text-black border-b-2 border-black"
+                  : "text-gray-500"
+              }`}
+            >
+              Kid
+            </li>
           </ul>
 
           <div className="flex items-center gap-6">
